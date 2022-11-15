@@ -7,7 +7,7 @@ namespace Chat
     public class MessageText : MonoBehaviour
     {
         private readonly string _template = $"{{0}}: {{1}}";
-        
+
         private TMP_Text _text;
 
         private void Awake()

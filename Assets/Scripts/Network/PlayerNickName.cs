@@ -5,7 +5,7 @@ using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TMP_Text), 
+[RequireComponent(typeof(TMP_Text),
     typeof(PhotonView))]
 public class PlayerNickName : MonoBehaviour
 {

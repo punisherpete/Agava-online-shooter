@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private PhotonView _view;
-    
+
     [SerializeField] private float _speed = 6f;
 
     private void Awake()
@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     {
         if (_view.IsMine == false)
             return;
-        
+
         var direction = new Vector3(
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical"), 0f).normalized;

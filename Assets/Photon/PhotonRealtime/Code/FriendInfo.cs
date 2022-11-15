@@ -17,10 +17,10 @@ namespace Photon.Realtime
 {
     using ExitGames.Client.Photon;
 
-    #if SUPPORTED_UNITY || NETFX_CORE
+#if SUPPORTED_UNITY || NETFX_CORE
     using Hashtable = ExitGames.Client.Photon.Hashtable;
     using SupportClass = ExitGames.Client.Photon.SupportClass;
-    #endif
+#endif
 
 
     /// <summary>
@@ -42,7 +42,7 @@ namespace Photon.Realtime
 
         public override string ToString()
         {
-        return string.Format("{0}\t is: {1}", this.UserId, (!this.IsOnline) ? "offline" : this.IsInRoom ? "playing" : "on master");
+            return string.Format("{0}\t is: {1}", this.UserId, (!this.IsOnline) ? "offline" : this.IsInRoom ? "playing" : "on master");
         }
     }
 }

@@ -132,7 +132,7 @@ namespace Photon.Pun.Demo.Procedural
         {
             propertiesValue[blockId] = height;
 
-            Hashtable properties = new Hashtable {{propertiesKey, propertiesValue}};
+            Hashtable properties = new Hashtable { { propertiesKey, propertiesValue } };
             PhotonNetwork.CurrentRoom.SetCustomProperties(properties);
         }
 
@@ -141,7 +141,7 @@ namespace Photon.Pun.Demo.Procedural
         /// </summary>
         private void RemoveClusterFromRoomProperties()
         {
-            Hashtable properties = new Hashtable {{propertiesKey, null}};
+            Hashtable properties = new Hashtable { { propertiesKey, null } };
             PhotonNetwork.CurrentRoom.SetCustomProperties(properties);
         }
 
@@ -164,7 +164,7 @@ namespace Photon.Pun.Demo.Procedural
                     return;
                 }
 
-                propertiesValue = (Dictionary<int, float>) propertiesThatChanged[propertiesKey];
+                propertiesValue = (Dictionary<int, float>)propertiesThatChanged[propertiesKey];
 
                 foreach (KeyValuePair<int, float> pair in propertiesValue)
                 {

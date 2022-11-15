@@ -37,10 +37,10 @@ namespace Photon.Pun.Demo.Asteroids
 
             if (photonView.InstantiationData != null)
             {
-                rigidbody.AddForce((Vector3) photonView.InstantiationData[0]);
-                rigidbody.AddTorque((Vector3) photonView.InstantiationData[1]);
+                rigidbody.AddForce((Vector3)photonView.InstantiationData[0]);
+                rigidbody.AddTorque((Vector3)photonView.InstantiationData[1]);
 
-                isLargeAsteroid = (bool) photonView.InstantiationData[2];
+                isLargeAsteroid = (bool)photonView.InstantiationData[2];
             }
         }
 
@@ -104,7 +104,7 @@ namespace Photon.Pun.Demo.Asteroids
                 {
                     Vector3 force = Quaternion.Euler(0, counter * 360.0f / numberToSpawn, 0) * Vector3.forward * Random.Range(0.5f, 1.5f) * 300.0f;
                     Vector3 torque = Random.insideUnitSphere * Random.Range(500.0f, 1500.0f);
-                    object[] instantiationData = {force, torque, false, PhotonNetwork.Time};
+                    object[] instantiationData = { force, torque, false, PhotonNetwork.Time };
 
                     PhotonNetwork.InstantiateRoomObject("SmallAsteroid", transform.position + force.normalized * 10.0f, Quaternion.Euler(0, Random.value * 180.0f, 0), 0, instantiationData);
                 }

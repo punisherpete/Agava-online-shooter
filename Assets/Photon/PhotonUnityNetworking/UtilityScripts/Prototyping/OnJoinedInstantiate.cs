@@ -248,14 +248,14 @@ namespace Photon.Pun.UtilityScripts
                 spawnPos = new Vector3(0, 0, 0);
                 spawnRot = new Quaternion(0, 0, 0, 1);
             }
-            
+
             if (UseRandomOffset)
             {
                 Random.InitState((int)(Time.time * 10000));
                 spawnPos += GetRandomOffset();
             }
         }
-        
+
 
         /// <summary>
         /// Get the transform of the next SpawnPoint from the list, selected using the SpawnSequence setting. 

@@ -87,7 +87,7 @@ namespace Photon.Pun.Demo.Asteroids
 
                 Vector3 force = -position.normalized * 1000.0f;
                 Vector3 torque = Random.insideUnitSphere * Random.Range(500.0f, 1500.0f);
-                object[] instantiationData = {force, torque, true};
+                object[] instantiationData = { force, torque, true };
 
                 PhotonNetwork.InstantiateRoomObject("BigAsteroid", position, Quaternion.Euler(Random.value * 360.0f, Random.value * 360.0f, Random.value * 360.0f), 0, instantiationData);
             }
@@ -166,16 +166,16 @@ namespace Photon.Pun.Demo.Asteroids
                 else
                 {
                     // not all players loaded yet. wait:
-                    Debug.Log("setting text waiting for players! ",this.InfoText);
+                    Debug.Log("setting text waiting for players! ", this.InfoText);
                     InfoText.text = "Waiting for other players...";
                 }
             }
-        
+
         }
 
         #endregion
 
-        
+
         // called by OnCountdownTimerIsExpired() when the timer ended
         private void StartGame()
         {
@@ -184,7 +184,7 @@ namespace Photon.Pun.Demo.Asteroids
             // on rejoin, we have to figure out if the spaceship exists or not
             // if this is a rejoin (the ship is already network instantiated and will be setup via event) we don't need to call PN.Instantiate
 
-            
+
             float angularStart = (360.0f / PhotonNetwork.CurrentRoom.PlayerCount) * PhotonNetwork.LocalPlayer.GetPlayerNumber();
             float x = 20.0f * Mathf.Sin(angularStart * Mathf.Deg2Rad);
             float z = 20.0f * Mathf.Cos(angularStart * Mathf.Deg2Rad);
@@ -207,7 +207,7 @@ namespace Photon.Pun.Demo.Asteroids
 
                 if (p.CustomProperties.TryGetValue(AsteroidsGame.PLAYER_LOADED_LEVEL, out playerLoadedLevel))
                 {
-                    if ((bool) playerLoadedLevel)
+                    if ((bool)playerLoadedLevel)
                     {
                         continue;
                     }
@@ -228,7 +228,7 @@ namespace Photon.Pun.Demo.Asteroids
                 object lives;
                 if (p.CustomProperties.TryGetValue(AsteroidsGame.PLAYER_LIVES, out lives))
                 {
-                    if ((int) lives > 0)
+                    if ((int)lives > 0)
                     {
                         allDestroyed = false;
                         break;
