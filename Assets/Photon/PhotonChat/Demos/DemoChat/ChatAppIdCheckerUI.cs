@@ -30,29 +30,29 @@ namespace Photon.Chat.Demo
             bool showWarning = false;
             string descriptionText = string.Empty;
 
-            #if PHOTON_UNITY_NETWORKING
+#if PHOTON_UNITY_NETWORKING
             showWarning = string.IsNullOrEmpty(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat);
             if (showWarning)
             {
                 descriptionText = "<Color=Red>WARNING:</Color>\nPlease setup a Chat AppId in the PhotonServerSettings file.";
             }
-            #else
+#else
             ChatGui cGui = FindObjectOfType<ChatGui>(); // TODO: this could be a serialized reference instead of finding this each time
 
             showWarning = cGui == null || string.IsNullOrEmpty(cGui.chatAppSettings.AppIdChat);
             if (showWarning)
             {
                 descriptionText = "<Color=Red>Please setup the Chat AppId.\nOpen the setup panel: Window, Photon Chat, Setup.</Color>";
-                
-                #if UNITY_EDITOR
+
+#if UNITY_EDITOR
                 if (!WizardOpenedOnce)
                 {
                     WizardOpenedOnce = true;
                     UnityEditor.EditorApplication.ExecuteMenuItem("Window/Photon Chat/Setup");
                 }
-                #endif
+#endif
             }
-            #endif
+#endif
 
             this.Description.text = descriptionText;
         }

@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
     {
         if (_view.IsMine == false)
             return;
-        
+
         _health++;
         _text.SetHealth(_health);
     }

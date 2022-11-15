@@ -30,10 +30,10 @@ namespace Photon.Pun.Demo.Cockpit
 
         public Text UpdateStatusText;
 
-		public Text ContentFeedback;
+        public Text ContentFeedback;
 
-		public InputField LobbyNameInputField;
-		public InputField SqlQueryInputField;
+        public InputField LobbyNameInputField;
+        public InputField SqlQueryInputField;
 
         bool _firstUpdate = true;
 
@@ -47,7 +47,7 @@ namespace Photon.Pun.Demo.Cockpit
             ResetList();
             CellPrototype.gameObject.SetActive(false);
             UpdateStatusText.text = string.Empty;
-			ContentFeedback.text = string.Empty;
+            ContentFeedback.text = string.Empty;
         }
 
 
@@ -59,12 +59,13 @@ namespace Photon.Pun.Demo.Cockpit
 
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
-			UpdateStatusText.text = "Updated";
+            UpdateStatusText.text = "Updated";
 
-			if (roomList.Count == 0 && !PhotonNetwork.InLobby) {
-				ContentFeedback.text = "No Room found in lobby "+LobbyNameInputField.text+" Matching: "+SqlQueryInputField.text;
-			}
-		
+            if (roomList.Count == 0 && !PhotonNetwork.InLobby)
+            {
+                ContentFeedback.text = "No Room found in lobby " + LobbyNameInputField.text + " Matching: " + SqlQueryInputField.text;
+            }
+
             foreach (RoomInfo entry in roomList)
             {
                 if (roomCellList.ContainsKey(entry.Name))
@@ -110,21 +111,21 @@ namespace Photon.Pun.Demo.Cockpit
         public void OnJoinedLobbyCallBack()
         {
             _firstUpdate = true;
-			ContentFeedback.text = string.Empty;
+            ContentFeedback.text = string.Empty;
         }
 
         public void GetRoomList()
         {
-			ResetList ();
+            ResetList();
 
-		
-			TypedLobby sqlLobby = new TypedLobby(LobbyNameInputField.text, LobbyType.SqlLobby);
 
-			Debug.Log ("Cockpit: GetCustomRoomList() matchmaking against '"+LobbyNameInputField.text+"' SqlLobby using query :  "+SqlQueryInputField.text);
+            TypedLobby sqlLobby = new TypedLobby(LobbyNameInputField.text, LobbyType.SqlLobby);
 
-			PhotonNetwork.GetCustomRoomList(sqlLobby, SqlQueryInputField.text ); //"C0 = 'Hello'"
+            Debug.Log("Cockpit: GetCustomRoomList() matchmaking against '" + LobbyNameInputField.text + "' SqlLobby using query :  " + SqlQueryInputField.text);
 
-			ContentFeedback.text = "looking for Rooms in Lobby '"+LobbyNameInputField.text+"' Matching: '"+SqlQueryInputField.text;
+            PhotonNetwork.GetCustomRoomList(sqlLobby, SqlQueryInputField.text); //"C0 = 'Hello'"
+
+            ContentFeedback.text = "looking for Rooms in Lobby '" + LobbyNameInputField.text + "' Matching: '" + SqlQueryInputField.text;
         }
 
 

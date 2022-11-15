@@ -10,12 +10,12 @@ namespace Enemy
         public bool HasTarget => _target != false;
         public Vector3 Position => _target.transform.position;
 
-        
+
         private void Start()
         {
             _targets = FindObjectsOfType<StalkerTarget>();
         }
-        
+
         private float GetDistance(Vector3 position)
         {
             return Vector3.Distance(position, transform.position);
@@ -50,7 +50,7 @@ namespace Enemy
 
         public void Contact()
         {
-            _target.Contact(); 
+            _target.Contact();
         }
     }
 }

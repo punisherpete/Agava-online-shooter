@@ -33,7 +33,7 @@ public class ChatEditor : EditorWindow
         //currentSettings.WizardDone = true;
         //EditorUtility.SetDirty(currentSettings);
 
-        ChatEditor editor = (ChatEditor)EditorWindow.GetWindow(typeof (ChatEditor), false, "Photon Chat");
+        ChatEditor editor = (ChatEditor)EditorWindow.GetWindow(typeof(ChatEditor), false, "Photon Chat");
         editor.minSize = editor.preferredSize;
     }
 

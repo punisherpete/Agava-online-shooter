@@ -6,7 +6,7 @@ namespace Enemy
     public class EnemySpawner : MonoBehaviour
     {
         private float _time;
-    
+
         [SerializeField] private float _delay = 1f;
         [SerializeField] private GameObject _playerPrefab;
         [SerializeField] private Transform[] _points;
@@ -16,7 +16,7 @@ namespace Enemy
             if (PhotonNetwork.IsMasterClient == false
                 || PhotonNetwork.CurrentRoom.PlayerCount < 2)
                 return;
-        
+
             if (_time <= 0f)
             {
                 var point = _points[Random.Range(0, _points.Length)].position;

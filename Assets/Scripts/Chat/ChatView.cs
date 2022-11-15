@@ -12,17 +12,17 @@ namespace Chat
         [SerializeField] private GameObject _message;
         [SerializeField] private TMP_InputField _input;
         [SerializeField] private Button _button;
-        
+
         public bool IsSendReady => _input.text != string.Empty;
 
         public event UnityAction<string> OnSubmit;
 
         private void OnValidate()
         {
-            if (_message == null 
+            if (_message == null
                 || _message.TryGetComponent(out MessageText _text) == false)
             {
-                Debug.Log(nameof(MessageText) + 
+                Debug.Log(nameof(MessageText) +
                           " was not found", this);
                 _message = null;
             }
@@ -44,7 +44,7 @@ namespace Chat
         {
             SendHandler();
         }
-        
+
         private void SendHandler()
         {
             OnSubmit?.Invoke(_input.text);

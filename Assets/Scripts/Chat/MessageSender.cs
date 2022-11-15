@@ -8,9 +8,9 @@ namespace Chat
     public class MessageSender : MonoBehaviour
     {
         private PhotonView _view;
-        
+
         [SerializeField] private ChatView _chatView;
-        
+
         private void Awake()
         {
             _view = GetComponent<PhotonView>();
@@ -28,13 +28,13 @@ namespace Chat
 
         private void SendMesage(string text)
         {
-            if (_chatView.IsSendReady )
+            if (_chatView.IsSendReady)
             {
                 _view.RPC(nameof(SendMessageRPC), RpcTarget.All,
                     PhotonNetwork.NickName, text);
             }
         }
-        
+
         [PunRPC]
         private void SendMessageRPC(string nick, string text)
         {
